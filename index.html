@@ -97,7 +97,6 @@ a{ color:inherit; }
 .en{ display:block; font-size:.76rem; font-weight:500; letter-spacing:.24em; text-transform:uppercase; color:var(--mute); }
 h2{ font-weight:300; font-size:clamp(1.6rem, 4.6vw, 2.4rem); line-height:1.4; letter-spacing:-.02em; margin-top:14px; }
 h2 .d{ display:block; font-family:var(--display); font-weight:400; font-size:clamp(2.2rem, 7vw, 3.6rem); line-height:1.05; letter-spacing:.06em; margin-bottom:10px; }
-.lead{ color:var(--soft); margin-top:16px; max-width:38em; }
 
 /* 히어로: 흑백 사진 + 어두운 그라데이션(R-11) */
 .hero{ position:relative; min-height:min(92svh, 860px); display:flex; align-items:flex-end; overflow:hidden; background:#0E0E0E; }
@@ -107,6 +106,7 @@ h2 .d{ display:block; font-family:var(--display); font-weight:400; font-size:cla
 .hero .word{ font-family:var(--display); font-weight:400; font-size:clamp(3.4rem, 13vw, 7.4rem); line-height:.95; letter-spacing:.16em; }
 .hero h1{ font-weight:300; font-size:clamp(1.5rem, 4.6vw, 2.3rem); line-height:1.45; letter-spacing:-.02em; margin-top:22px; }
 .hero .sub{ color:var(--soft); margin-top:10px; }
+.hero .en{ color:var(--soft); }
 .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; list-style:none; }
 .chips li{ font-size:.86rem; padding:5px 12px; border:1px solid #555555; border-radius:var(--r); color:var(--ink); background:rgba(18,18,18,.55); }
 .cta3{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px; margin-top:28px; max-width:560px; }
@@ -377,7 +377,7 @@ h2 .d{ display:block; font-family:var(--display); font-weight:400; font-size:cla
           <dl class="info">
             <div><dt>주소</dt><dd>경기 수원시 권선구 동수원로146번길 264 101호</dd></div>
             <div><dt>찾아가는 길</dt><dd>다원할인마트 바로 앞 빌라 주차장 안으로 쭉 들어오시면 됩니다!</dd></div>
-            <div><dt>주차</dt><dd>주차는 -곡반정동 제2 공영주차장-을 이용해 주시면 됩니다<small>샵 도보 4분거리 공영주차장 가능</small><small>한 시간 주차 무료!! <span class="nw">(최초 30분-600원/30분 초과 10분-300원)</span></small></dd></div>
+            <div><dt>주차</dt><dd>주차는 -곡반정동 제2 공영주차장-을 이용해 주시면 됩니다<small>샵 도보 4분거리 공영주차장 가능</small><small>한 시간 주차 무료!! <span class="nw">(최초 30분-600원</span>/<span class="nw">30분 초과 10분-300원)</span></small></dd></div>
             <div><dt>영업</dt><dd>월 - 토 <span class="nw">15:00 - 23:00</span><br>일 <span class="nw">08:00 - 21:00</span><small>운영시간 외 예약은 톡톡 문의/휴무일 인스타 기재 !!</small></dd></div>
             <div><dt>전화</dt><dd><a href="tel:050713728758" class="nw">0507-1372-8758</a><small>왁싱 관리 중일시 상담이 늦어질 수 있습니다</small></dd></div>
           </dl>
