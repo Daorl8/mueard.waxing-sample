@@ -111,7 +111,7 @@ h2 .d{ display:block; font-family:var(--display); font-weight:400; font-size:cla
 .chips li{ font-size:.86rem; padding:5px 12px; border:1px solid #555555; border-radius:var(--r); color:var(--ink); background:rgba(18,18,18,.55); }
 .cta3{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px; margin-top:28px; max-width:560px; }
 .cta3 .btn:first-child{ grid-column:1 / -1; }
-@media (max-width:439px){ .cta3 .btn:last-child{ grid-column:1 / -1; } }
+@media (max-width:439px){ .cta3{ grid-template-columns:minmax(0,1fr); } }
 @media (min-width:640px){ .cta3{ display:flex; flex-wrap:wrap; } }
 
 /* 소개 */
@@ -346,7 +346,7 @@ h2 .d{ display:block; font-family:var(--display); font-weight:400; font-size:cla
         </figure>
         <figure class="reveal">
           <div class="ph" style="aspect-ratio:461/688"><img src="mu-ba-arm.webp" alt="팔 왁싱 전과 후 비교" width="461" height="688" loading="lazy" /></div>
-          <figcaption><b>팔 왁싱</b></figcaption>
+          <figcaption><b>팔 왁싱</b><span>위 시술 전 · 아래 시술 후</span></figcaption>
         </figure>
       </div>
       <p class="ba-note reveal">더 많은 왁싱 전/후와 리뷰는 <a href="https://www.instagram.com/mueard.waxing/" target="_blank" rel="noopener">인스타</a>에서 확인하실 수 있습니다</p>
@@ -377,8 +377,8 @@ h2 .d{ display:block; font-family:var(--display); font-weight:400; font-size:cla
           <dl class="info">
             <div><dt>주소</dt><dd>경기 수원시 권선구 동수원로146번길 264 101호</dd></div>
             <div><dt>찾아가는 길</dt><dd>다원할인마트 바로 앞 빌라 주차장 안으로 쭉 들어오시면 됩니다!</dd></div>
-            <div><dt>주차</dt><dd>주차는 -곡반정동 제2 공영주차장-을 이용해 주시면 됩니다<small>한 시간 주차 무료!! <span class="nw">(최초 30분-600원/30분 초과 10분-300원)</span></small></dd></div>
-            <div><dt>영업</dt><dd>월 - 토 <span class="nw">15:00 - 23:00</span><small>일 <span class="nw">08:00 - 21:00</span> · 운영시간 외 예약은 톡톡 문의/휴무일 인스타 기재 !!</small></dd></div>
+            <div><dt>주차</dt><dd>주차는 -곡반정동 제2 공영주차장-을 이용해 주시면 됩니다<small>샵 도보 4분거리 공영주차장 가능</small><small>한 시간 주차 무료!! <span class="nw">(최초 30분-600원/30분 초과 10분-300원)</span></small></dd></div>
+            <div><dt>영업</dt><dd>월 - 토 <span class="nw">15:00 - 23:00</span><br>일 <span class="nw">08:00 - 21:00</span><small>운영시간 외 예약은 톡톡 문의/휴무일 인스타 기재 !!</small></dd></div>
             <div><dt>전화</dt><dd><a href="tel:050713728758" class="nw">0507-1372-8758</a><small>왁싱 관리 중일시 상담이 늦어질 수 있습니다</small></dd></div>
           </dl>
           <div class="cta">
