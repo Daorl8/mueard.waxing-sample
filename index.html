@@ -121,10 +121,13 @@ h2 .d{ display:block; font-family:var(--display); font-weight:400; font-size:cla
 .feat{ list-style:none; border-top:1px solid var(--line); margin-top:30px; }
 .feat li{ padding:13px 2px; border-bottom:1px solid var(--line); color:var(--soft); font-size:.95rem; }
 .mood{ display:grid; grid-template-columns:minmax(0,3fr) minmax(0,2fr); gap:10px; align-items:end; }
-.mood figure{ overflow:hidden; border-radius:var(--r); box-shadow:0 30px 60px var(--shadow); }
-.mood figure:first-child{ aspect-ratio:4/5; }
-.mood figure:last-child{ aspect-ratio:3/4; margin-bottom:-28px; }
-.mood img{ width:100%; height:100%; object-fit:cover; }
+.mood figure{ margin:0; }
+.mood .ph{ overflow:hidden; border-radius:var(--r); box-shadow:0 30px 60px var(--shadow); }
+.mood figure:first-child .ph{ aspect-ratio:4/5; }
+.mood figure:last-child .ph{ aspect-ratio:3/4; }
+.mood figure:last-child{ margin-bottom:-28px; }
+.mood img{ width:100%; height:100%; object-fit:cover; filter:saturate(.7); }
+.mood figcaption, .prep-photo figcaption{ margin-top:10px; font-size:.86rem; color:var(--soft); }
 @media (min-width:900px){ .about-grid{ grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:72px; align-items:center; } }
 
 /* 관리 */
@@ -173,8 +176,12 @@ h2 .d{ display:block; font-family:var(--display); font-weight:400; font-size:cla
 .prep i{ font-style:normal; font-family:var(--display); font-size:1.6rem; color:var(--mute); }
 .prep p{ margin-top:8px; font-size:.98rem; line-height:1.85; }
 @media (min-width:900px){ .prep{ grid-template-columns:repeat(3, minmax(0,1fr)); gap:16px; } }
-.strip{ margin-top:56px; overflow:hidden; border-radius:var(--r); aspect-ratio:21/8; box-shadow:0 24px 50px var(--shadow); }
-.strip img{ width:100%; height:100%; object-fit:cover; }
+.prep-wrap{ display:grid; gap:28px; margin-top:40px; }
+.prep-wrap .prep{ margin-top:0; }
+.prep-photo{ margin:0; }
+.prep-photo .ph{ overflow:hidden; border-radius:var(--r); aspect-ratio:4/3; box-shadow:0 24px 50px var(--shadow); }
+.prep-photo img{ width:100%; height:100%; object-fit:cover; object-position:50% 45%; filter:saturate(.7); }
+@media (min-width:900px){ .prep-wrap{ grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:40px; align-items:start; } .prep-wrap .prep{ grid-template-columns:minmax(0,1fr); gap:14px; } .prep-photo{ order:-1; } .prep-photo .ph{ aspect-ratio:4/5; } }
 
 /* 오시는 길 */
 .visit-grid{ display:grid; gap:28px; margin-top:40px; }
@@ -240,7 +247,7 @@ h2 .d{ display:block; font-family:var(--display); font-weight:400; font-size:cla
     <div class="wrap">
       <span class="en reveal">Design Waxing · Suwon</span>
       <p class="word reveal" aria-hidden="true">MUEARD</p>
-      <h1 class="reveal">저통증 + 왁싱샵 정착하는 곳</h1>
+      <h1 class="reveal">수원 저통증 왁싱</h1>
       <p class="sub reveal">1:1맞춤 세미아치 디자인 전문</p>
       <ul class="chips reveal">
         <li>야간 왁싱 가능</li>
@@ -273,8 +280,8 @@ h2 .d{ display:block; font-family:var(--display); font-weight:400; font-size:cla
         </ul>
       </div>
       <div class="mood reveal">
-        <figure><img src="mu-chair.webp" alt="검은 가죽 시술 의자, 흑백 사진" width="1200" height="750" loading="lazy" /></figure>
-        <figure><img src="mu-pearl.webp" alt="회색 바탕 위 진주 목걸이, 흑백 사진" width="600" height="803" loading="lazy" /></figure>
+        <figure><div class="ph"><img src="mu-room.webp" alt="커튼 옆 일회용 시트를 깐 시술 베드" width="680" height="850" loading="lazy" /></div><figcaption>시술 베드</figcaption></figure>
+        <figure><div class="ph"><img src="mu-lycon.webp" alt="라이콘 슈가 스크럽과 알로에 진정젤" width="700" height="938" loading="lazy" /></div><figcaption>라이콘 제품 · 진정젤</figcaption></figure>
       </div>
     </div>
   </section>
@@ -350,12 +357,14 @@ h2 .d{ display:block; font-family:var(--display); font-weight:400; font-size:cla
     <div class="wrap">
       <span class="en reveal">Before you come</span>
       <h2 id="prep-h" class="reveal">방문 전 안내</h2>
-      <div class="prep">
-        <div class="reveal"><i>01</i><p>왁싱은 중요한 일정이 있으실 경우에는 꼭 꼭 !! 일주일 전 방문을 권장드려요</p></div>
-        <div class="reveal"><i>02</i><p>왁싱 받기 전 셀프 제모는 꼭 멈춰주세요! 마지막 제모 후 2주 후 방문</p></div>
-        <div class="reveal"><i>03</i><p>최소 2~3cm 는 길어져 있어야 깔끔하게 왁싱이 가능합니다</p></div>
+      <div class="prep-wrap">
+        <div class="prep">
+          <div class="reveal"><i>01</i><p>왁싱은 중요한 일정이 있으실 경우에는 꼭 꼭 !! 일주일 전 방문을 권장드려요</p></div>
+          <div class="reveal"><i>02</i><p>왁싱 받기 전 셀프 제모는 꼭 멈춰주세요! 마지막 제모 후 2주 후 방문</p></div>
+          <div class="reveal"><i>03</i><p>최소 2~3cm 는 길어져 있어야 깔끔하게 왁싱이 가능합니다</p></div>
+        </div>
+        <figure class="prep-photo reveal"><div class="ph"><img src="mu-wax.webp" alt="장갑 낀 손으로 든 그릇 속 초록색 왁스" width="900" height="1198" loading="lazy" /></div><figcaption>브라질리언 왁스</figcaption></figure>
       </div>
-      <figure class="strip reveal"><img src="mu-shadow.webp" alt="벽에 드리운 빛과 그림자, 흑백 사진" width="1079" height="410" loading="lazy" /></figure>
     </div>
   </section>
 
