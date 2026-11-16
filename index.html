@@ -17,7 +17,7 @@
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="theme-color" content="#121212" />
+<meta name="theme-color" content="#E6E6E6" />
 <link rel="icon" href="favicon.png" type="image/png" />
 <!-- 시안 도메인 = mueardwaxing-sample.lgt3232.workers.dev. 고객 인계 시 grep lgt3232 → canonical·og:url·og:image·JSON-LD url/image 치환 -->
 <script type="application/ld+json">
@@ -40,19 +40,25 @@
 @font-face{ font-family:"MU Display"; font-weight:400; font-display:swap; src:url("mu-italiana.woff2") format("woff2"); }
 @font-face{ font-family:"MU Sans"; font-weight:300 600; font-display:swap; src:url("mu-pretendard.woff2") format("woff2"); }
 
-/* 사장님 피드처럼: 그레이 · 블랙앤화이트 · 그림자 · 어두운 명암. 색은 전부 중성(R=G=B), 포인트 색 없음 */
+/* 사장님 피드처럼: 회색 중심 + 검정 악센트(히어로 · 오시는 길 · 푸터 · 하단 바). 색은 전부 중성(R=G=B), 포인트 색 없음 */
 :root{
-  --bg:#121212;
-  --bg2:#1A1A1A;
-  --card:#222222;
-  --line:#2E2E2E;
-  --ink:#EDEDED;
-  --soft:#A6A6A6;
-  --mute:#8E8E8E;
+  --bg:#E6E6E6;
+  --bg2:#D9D9D9;
+  --card:rgba(255,255,255,.5);
+  --line:#C2C2C2;
+  --line2:#9E9E9E;
+  --ink:#1C1C1C;
+  --soft:#454545;
+  --mute:#575757;
+  --on:#F2F2F2;
+  --fillhover:#000000;
+  --shadow:rgba(0,0,0,.18);
   --r:2px;
   --display:"MU Display","MU Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --sans:"MU Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
+/* 어두운 띠: 토큰만 바꿔 같은 규칙을 재사용 */
+.dark{ --bg:#161616; --bg2:#161616; --card:#222222; --line:#333333; --line2:#4A4A4A; --ink:#EDEDED; --soft:#A6A6A6; --mute:#8E8E8E; --on:#121212; --fillhover:#FFFFFF; --shadow:rgba(0,0,0,.5); color:var(--ink); background:var(--bg); }
 *{ box-sizing:border-box; margin:0; padding:0; }
 html{ scroll-behavior:smooth; scroll-padding-top:110px; -webkit-text-size-adjust:100%; }
 body{ font-family:var(--sans); color:var(--ink); background:var(--bg); line-height:1.75; font-size:16px; -webkit-font-smoothing:antialiased; word-break:keep-all; overflow-wrap:break-word; }
@@ -63,7 +69,7 @@ a{ color:inherit; }
 .nw{ white-space:nowrap; }
 
 /* 헤더 */
-.top{ position:sticky; top:0; z-index:50; background:#121212; border-bottom:1px solid var(--line); }
+.top{ position:sticky; top:0; z-index:50; background:var(--bg); border-bottom:1px solid var(--line); }
 .top .bar{ display:flex; align-items:center; justify-content:space-between; gap:16px; height:64px; }
 .brand{ display:flex; align-items:baseline; gap:10px; text-decoration:none; }
 .brand b{ font-family:var(--display); font-weight:400; font-size:1.5rem; letter-spacing:.22em; }
@@ -81,9 +87,9 @@ a{ color:inherit; }
 
 /* 버튼 */
 .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:48px; padding:0 22px; border:1px solid var(--ink); border-radius:var(--r); text-decoration:none; font-weight:500; font-size:.94rem; background:transparent; color:var(--ink); transition:background-color .2s, color .2s, transform .1s; }
-.btn.fill{ background:var(--ink); color:#121212; font-weight:600; }
+.btn.fill{ background:var(--ink); color:var(--on); font-weight:600; }
 .btn:active{ transform:scale(.98); }
-@media (hover:hover){ .btn:hover{ background:var(--ink); color:#121212; } .btn.fill:hover{ background:#FFFFFF; } }
+@media (hover:hover){ .btn:hover{ background:var(--ink); color:var(--on); } .btn.fill:hover{ background:var(--fillhover); border-color:var(--fillhover); } }
 
 /* 공통 */
 .sec{ padding:104px 0; }
@@ -95,8 +101,8 @@ h2 .d{ display:block; font-family:var(--display); font-weight:400; font-size:cla
 
 /* 히어로: 흑백 사진 + 어두운 그라데이션(R-11) */
 .hero{ position:relative; min-height:min(92svh, 860px); display:flex; align-items:flex-end; overflow:hidden; background:#0E0E0E; }
-.hero > img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:brightness(.62) contrast(1.08); }
-.hero::after{ content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(10,10,10,.92) 0%, rgba(10,10,10,.55) 45%, rgba(10,10,10,.25) 100%); }
+.hero > img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:brightness(.8) contrast(1.05); }
+.hero::after{ content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(10,10,10,.88) 0%, rgba(10,10,10,.5) 45%, rgba(10,10,10,.1) 100%); }
 .hero .wrap{ position:relative; z-index:1; padding:120px 0 64px; }
 .hero .word{ font-family:var(--display); font-weight:400; font-size:clamp(3.4rem, 13vw, 7.4rem); line-height:.95; letter-spacing:.16em; }
 .hero h1{ font-weight:300; font-size:clamp(1.5rem, 4.6vw, 2.3rem); line-height:1.45; letter-spacing:-.02em; margin-top:22px; }
@@ -115,7 +121,7 @@ h2 .d{ display:block; font-family:var(--display); font-weight:400; font-size:cla
 .feat{ list-style:none; border-top:1px solid var(--line); margin-top:30px; }
 .feat li{ padding:13px 2px; border-bottom:1px solid var(--line); color:var(--soft); font-size:.95rem; }
 .mood{ display:grid; grid-template-columns:minmax(0,3fr) minmax(0,2fr); gap:10px; align-items:end; }
-.mood figure{ overflow:hidden; border-radius:var(--r); box-shadow:0 30px 60px rgba(0,0,0,.55); }
+.mood figure{ overflow:hidden; border-radius:var(--r); box-shadow:0 30px 60px var(--shadow); }
 .mood figure:first-child{ aspect-ratio:4/5; }
 .mood figure:last-child{ aspect-ratio:3/4; margin-bottom:-28px; }
 .mood img{ width:100%; height:100%; object-fit:cover; }
@@ -123,12 +129,12 @@ h2 .d{ display:block; font-family:var(--display); font-weight:400; font-size:cla
 
 /* 관리 */
 .svc{ display:grid; gap:14px; margin-top:44px; }
-.svc article{ background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:28px 24px 30px; box-shadow:0 18px 40px rgba(0,0,0,.35); }
+.svc article{ background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:28px 24px 30px; box-shadow:0 18px 40px var(--shadow); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); }
 .svc .en{ color:var(--soft); }
 .svc h3{ font-weight:500; font-size:1.2rem; margin-top:8px; }
 .svc p{ color:var(--soft); font-size:.94rem; margin-top:12px; line-height:1.8; }
 @media (min-width:900px){ .svc{ grid-template-columns:repeat(3, minmax(0,1fr)); gap:18px; } }
-.care{ margin-top:22px; display:grid; gap:14px; padding:26px 24px; border:1px solid #4A4A4A; border-radius:var(--r); }
+.care{ margin-top:22px; display:grid; gap:14px; padding:26px 24px; border:1px solid var(--line2); border-radius:var(--r); }
 .care b{ font-weight:500; font-size:1.08rem; }
 .care p{ color:var(--soft); font-size:.95rem; }
 @media (min-width:900px){ .care{ grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr); gap:40px; align-items:center; padding:30px 34px; } }
@@ -153,7 +159,7 @@ h2 .d{ display:block; font-family:var(--display); font-weight:400; font-size:cla
 /* 전후 */
 .ba{ display:grid; gap:24px; margin-top:40px; }
 .ba figure{ margin:0; }
-.ba .ph{ overflow:hidden; border-radius:var(--r); background:var(--card); box-shadow:0 24px 50px rgba(0,0,0,.5); }
+.ba .ph{ overflow:hidden; border-radius:var(--r); background:var(--card); box-shadow:0 24px 50px var(--shadow); }
 .ba .ph img{ width:100%; height:100%; object-fit:cover; filter:saturate(.55) contrast(1.04); }
 .ba figcaption{ margin-top:10px; font-size:.92rem; color:var(--soft); }
 .ba figcaption b{ color:var(--ink); font-weight:500; margin-right:6px; }
@@ -167,7 +173,7 @@ h2 .d{ display:block; font-family:var(--display); font-weight:400; font-size:cla
 .prep i{ font-style:normal; font-family:var(--display); font-size:1.6rem; color:var(--mute); }
 .prep p{ margin-top:8px; font-size:.98rem; line-height:1.85; }
 @media (min-width:900px){ .prep{ grid-template-columns:repeat(3, minmax(0,1fr)); gap:16px; } }
-.strip{ margin-top:56px; overflow:hidden; border-radius:var(--r); aspect-ratio:21/8; }
+.strip{ margin-top:56px; overflow:hidden; border-radius:var(--r); aspect-ratio:21/8; box-shadow:0 24px 50px var(--shadow); }
 .strip img{ width:100%; height:100%; object-fit:cover; }
 
 /* 오시는 길 */
@@ -193,9 +199,9 @@ h2 .d{ display:block; font-family:var(--display); font-weight:400; font-size:cla
 @media (min-width:900px){ .foot{ padding-bottom:52px; } }
 
 /* 하단 바: 네이버 예약 · 카카오채널 · 전화 */
-.quick{ position:fixed; left:0; right:0; bottom:0; z-index:60; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:6px; padding:8px 10px calc(8px + env(safe-area-inset-bottom)); background:#121212; border-top:1px solid var(--line); }
+.quick{ position:fixed; left:0; right:0; bottom:0; z-index:60; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:6px; padding:8px 10px calc(8px + env(safe-area-inset-bottom)); background:var(--bg); border-top:1px solid var(--line); }
 .quick a{ display:flex; align-items:center; justify-content:center; min-height:48px; border:1px solid var(--ink); border-radius:var(--r); font-size:.86rem; font-weight:500; text-decoration:none; text-align:center; }
-.quick a.fill{ background:var(--ink); color:#121212; font-weight:600; }
+.quick a.fill{ background:var(--ink); color:var(--on); font-weight:600; }
 @media (min-width:900px){ .quick{ display:none; } }
 
 /* 나타나기 (모션 강제 재생 · 다올 방침) */
@@ -229,7 +235,7 @@ h2 .d{ display:block; font-family:var(--display); font-weight:400; font-size:cla
 </header>
 
 <main id="top">
-  <section class="hero">
+  <section class="hero dark">
     <img src="mu-hero.webp" alt="흰 벽을 덮은 덩굴 식물, 흑백 사진" width="1092" height="870" fetchpriority="high" />
     <div class="wrap">
       <span class="en reveal">Design Waxing · Suwon</span>
@@ -353,7 +359,7 @@ h2 .d{ display:block; font-family:var(--display); font-weight:400; font-size:cla
     </div>
   </section>
 
-  <section class="sec alt visit" id="visit" aria-labelledby="visit-h">
+  <section class="sec visit dark" id="visit" aria-labelledby="visit-h">
     <div class="wrap">
       <span class="en reveal">Visit</span>
       <h2 id="visit-h" class="reveal">오시는 길</h2>
@@ -378,7 +384,7 @@ h2 .d{ display:block; font-family:var(--display); font-weight:400; font-size:cla
   </section>
 </main>
 
-<footer class="foot">
+<footer class="foot dark">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="뮤어드 처음으로"><b>MUEARD</b><small>waxing · brow</small></a>
     <p>뮤어드왁싱브로우 수원점 · 경기 수원시 권선구 동수원로146번길 264 101호 · <a href="tel:050713728758" class="nw">0507-1372-8758</a></p>
@@ -387,7 +393,7 @@ h2 .d{ display:block; font-family:var(--display); font-weight:400; font-size:cla
   </div>
 </footer>
 
-<nav class="quick" aria-label="빠른 연결">
+<nav class="quick dark" aria-label="빠른 연결">
   <a class="fill" href="https://m.place.naver.com/place/1302654610/home" target="_blank" rel="noopener">네이버 예약</a>
   <a href="https://pf.kakao.com/_gXDbG" target="_blank" rel="noopener">카카오채널</a>
   <a href="tel:050713728758">전화</a>
